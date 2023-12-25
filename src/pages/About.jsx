@@ -1,5 +1,6 @@
 import React from "react";
 import secImg from "/public/image 56.png";
+import { Link } from "react-router-dom";
 export function About() {
   return (
     <div className="about">
@@ -18,7 +19,9 @@ export function About() {
         <div className="exploring-vans">
           <h2>Your distany is waiting.</h2>
           <h2>Your van is ready.</h2>
-          <button className="explore-van-btn">Explore our vans</button>
+          <Link to="/vans">
+            <button className="explore-van-btn">Explore our vans</button>
+          </Link>
         </div>
       </div>
     </div>

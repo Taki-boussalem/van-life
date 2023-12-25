@@ -66,20 +66,24 @@ nav {
     color: white;
     font-weight: 500;
   }
-  & button{
-    background: #FF8C38;
-    width: 500px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    align-self: center;
-    transition: all .3s ease;
-
-    &:active{
-      scale: 0.99;
+  & a{
+    text-decoration: none;
+    text-align: center;
+    & button{
+      background: #FF8C38;
+      width: 500px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      align-self: center;
+      transition: all .3s ease;
+  
+      &:active{
+        scale: 0.99;
+      }
     }
   }
 }
@@ -115,6 +119,98 @@ nav {
         color: white;
         cursor: pointer;
       }
+    }
+  }
+}
+
+.van-page{
+  max-width: 800px;
+  display: block;
+  margin: 1rem;
+
+  & .van-options{
+    margin-bottom: 2rem;
+    & h1{
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    & div{
+      max-width: 550px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      & button{
+        background: #FFEAD0;
+        border: 1px solid white;
+        padding: 10px 15px ;
+        font-size: 20px;
+        color: black;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &.active{
+          background: #ffc884;
+        }
+      }
+      & p{
+        text-decoration: underline;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  & .display-vans-offers{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+
+    & .van{
+      width: 230px;
+      height: 350px;
+      overflow: hidden;
+      
+      & img{
+        border-radius: 10px;
+        width:230px;
+        margin-bottom: 10px;
+      } 
+
+      & div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        margin-bottom: 20px;
+        & h2{
+          font-size: 18px;
+        }
+        & h3{
+          font-size: 15px;
+        }
+      }
+
+      & .van-option{
+        padding: 10px 15px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+        &.simple{
+          background: #fbd2a0;
+        }
+        &.rugged{
+          background: #115E59;
+        }
+        &.luxury{
+          background: #161616;
+        }
+      }
+
     }
   }
 }
