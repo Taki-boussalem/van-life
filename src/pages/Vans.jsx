@@ -26,7 +26,7 @@ function Vans() {
       </div>
       <div className="display-vans-offers">
         {vansData.map(van => {
-          return <VanComp img={van.imageUrl} name={van.name} price={van.price} option={van.type} key={van.id}/>
+          return <VanComp id={van.id} img={van.imageUrl} name={van.name} price={van.price} option={van.type} key={van.id}/>
         })}
       </div>
     </div>
