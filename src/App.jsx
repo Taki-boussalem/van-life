@@ -8,7 +8,7 @@ import "./server";
 import Layout from "./components/Layout";
 import Dashborad from "./pages/host/Dashborad";
 import Income from "./pages/host/Income";
-import HostVans from "./pages/host/hostVans";
+import HostVans from "./pages/host/HostVans";
 import Reviews from "./pages/host/Reviews";
 import Hostlayout from "./components/Hostlayout";
 import HostVanDetail from "./pages/host/HostVanDetail";
