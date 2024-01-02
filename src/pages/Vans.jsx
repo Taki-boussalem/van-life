@@ -1,18 +1,23 @@
 import React from "react";
-import VanComp from "../components/vanComp";
+import VanComp from "../components/VanComp";
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+import getVans from "../api";
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   console.log(searchParams.getAll("type"));
-
   const [vansData, setVansData] = useState([]);
+  const [loading, setLoading] = useState(false)
   useEffect(function () {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVansData(data.vans));
+    async function loadVansData() {
+      setLoading(true)
+      const data = await getVans() 
+      setVansData(data)
+      setLoading(false)
+    }
+    loadVansData()
   }, []);
   const displayedVansData = typeFilter
     ? vansData.filter((el) => el.type.toLowerCase() === typeFilter)
@@ -28,6 +33,8 @@ function Vans() {
       return previousParam;
     });
   }
+
+  if(loading) return <h1>Loading...</h1>
 
   return (
     <div className="van-page">
@@ -75,6 +82,7 @@ function Vans() {
               price={van.price}
               option={van.type}
               key={van.id}
+              searchParams={searchParams}
             />
           );
         })}

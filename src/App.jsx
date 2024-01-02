@@ -15,14 +15,18 @@ import HostVanDetail from "./pages/host/HostVanDetail";
 import HostVanDetailPrice from "./pages/host/HostVanDetailPrice";
 import HostVanDetailPhotos from "./pages/host/HostVanDetailPhotos";
 import HostVanDetailInfo from "./pages/host/HostVanDetailInfo";
+import Page404 from "./pages/Page404";
+import getVans from "./api";
 
 export default function App() {
   const [serverData, setServerData] = useState([])
   
   useEffect(() => {
-    fetch("/api/vans")
-      .then(res => res.json())
-      .then(data => setServerData(data.vans))
+    async function loadServerData() {
+      const data = await getVans() 
+      setServerData(data)
+    }
+    loadServerData()
   }, [])
   console.log(serverData)
   return (
@@ -44,6 +48,7 @@ export default function App() {
               <Route path="photos" element={<HostVanDetailPhotos/>}/>
             </Route>  
           </Route>
+          <Route path="*" element={<Page404 />}/>
         </Route>
       </Routes>
     </div>

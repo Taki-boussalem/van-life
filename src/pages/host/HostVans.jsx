@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import VanCardHost from "../../components/VanCardHost";
-
+import getVans from "../../api";
 function HostVans({ vansData }) {
   const [vansInfo, setVansInfo] = useState([]);
   useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setVansInfo(data.vans));
+    async function loadVans() {
+      const data = await getVans() 
+      setVansInfo(data)
+    }
+    loadVans()
   });
   const vanListElement = vansInfo.map((vanData) => (
     <VanCardHost

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function VanComp({id, img, name, price, option}) {
+function VanComp({id, img, name, price, option, searchParams}) {
   return (
-    <Link to={`${id}`}>
+    <Link to={`${id}`} state={{search: `${searchParams.toString()}`, type: searchParams.get("type")}}>
       <div className="van">
         <img src={img}/>
         <div className="van-info">
