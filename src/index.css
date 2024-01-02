@@ -153,7 +153,7 @@ nav {
       align-items: center;
       gap: 10px;
 
-      & button {
+      & .van-options-button {
         background: #ffead0;
         border: 1px solid white;
         padding: 10px 15px;
@@ -161,10 +161,34 @@ nav {
         color: black;
         border-radius: 10px;
         cursor: pointer;
-
+        transition: all .2s ease;
         &.active {
           background: #ffc884;
         }
+        &.simple{
+          
+          &:hover, &.selected{
+            background: #ff8c38;
+            color: white;
+          }
+        }
+        &.rugged{
+          &:hover, &.selected{
+            background: #115e59;
+            color: white;
+          }
+        }
+        &.luxury{
+          &:hover, &.selected{
+            background: #161616;
+            color: white;
+          }
+        }
+      }
+      & button{
+        outline: none;
+        background: white;
+        border: none;
       }
       & p {
         text-decoration: underline;
@@ -386,6 +410,12 @@ nav {
     border-radius: 10px;
     padding-bottom: 2rem;
 
+    & h2{
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      text-align: center;
+      
+    }
     & .host-van-detail-wrapper {
       width: 100%;
       & .host-van-info {

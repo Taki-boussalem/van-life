@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function VanComp({id, img, name, price, option}) {
   return (
-    <Link to={`/vans/${id}`}>
+    <Link to={`${id}`}>
       <div className="van">
         <img src={img}/>
         <div className="van-info">
