@@ -9,15 +9,15 @@ function Vans() {
   const typeFilter = searchParams.get("type");
   console.log(searchParams.getAll("type"));
   const [vansData, setVansData] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   useEffect(function () {
     async function loadVansData() {
-      setLoading(true)
-      const data = await getVans() 
-      setVansData(data)
-      setLoading(false)
+      setLoading(true);
+      const data = await getVans();
+      setVansData(data);
+      setLoading(false);
     }
-    loadVansData()
+    loadVansData();
   }, []);
   const displayedVansData = typeFilter
     ? vansData.filter((el) => el.type.toLowerCase() === typeFilter)
@@ -34,7 +34,7 @@ function Vans() {
     });
   }
 
-  if(loading) return <h1>Loading...</h1>
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <div className="van-page">
