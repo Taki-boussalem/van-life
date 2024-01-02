@@ -1,5 +1,5 @@
 import React from "react";
-import VanComp from "../components/VanComp.jsx";
+import VanComp from "../components/vanComp.jsx";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import getVans from "../api";
